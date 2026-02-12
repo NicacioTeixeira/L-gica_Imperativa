@@ -1,2 +1,19 @@
-# L-gica_Imperativa
-Front-End: Lógica Imperativa 🚀  Projetos e exercícios da disciplina focados em manipulação direta do DOM, eventos e estado manual com JavaScript Vanilla. Repositório para consolidar o entendimento do ecossistema Web (HTML5/CSS3/JS) sem abstrações de frameworks, priorizando performance e controle total do ciclo de renderização.
+🛠️ Tecnologias e Conceitos
+HTML5 & CSS3: Estruturação e estilização avançada.
+
+JavaScript (Vanilla): Implementação de lógica imperativa.
+
+Manipulação de DOM: Seleção, criação e alteração dinâmica de elementos.
+
+Tratamento de Eventos: Listeners, propagação e delegação.
+
+Persistência Local: Uso de localStorage e sessionStorage.
+
+Consumo de APIs: Requisições assíncronas com fetch e manipulação de JSON.
+
+📂 Estrutura do Repositório
+/exercicios: Pequenos scripts e desafios de lógica lógica de programação em JS.
+
+/projetos-aula: Aplicações completas desenvolvidas durante as aulas.
+
+/desafios: Resolução de problemas propostos para avaliação.
