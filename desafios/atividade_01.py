@@ -1,13 +1,13 @@
 altura = []
 genero = []
 
-for i in range(3):
+for i in range(15):
 
     genero_digitado = input(f'Insira o  {i+1}º Dado:\n Digite o genero da pessoa abaixo \n (1) para Homen -- (2) para Mulher : ')
     genero.append(genero_digitado)
     quantidade_mulher = genero.count("2")
 
-    altura_digitada = float(input('Digite a altura: '))
+    altura_digitada = float(input('Digite a altura em metros no formato, (ex 1.75): '))
     altura.append(altura_digitada)
 
     altura_total = sum(altura)
