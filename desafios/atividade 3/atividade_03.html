@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Notas - Alunos Aprovados</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; background-color: #f4f4f9; }
+        h2 { color: #333; border-bottom: 2px solid #333; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #2c3e50; color: white; }
+        tr:hover { background-color: #f1f1f1; }
+        .aprovado { color: #27ae60; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h2>Lista de Alunos Aprovados (Média >= 7)</h2>
+
+    <table id="tabela-aprovados">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Curso</th>
+                <th>Média Final</th>
+            </tr>
+        </thead>
+        <tbody id="corpo-tabela">
+            </tbody>
+    </table>
+
+    <script>
+        // 1. O JSON (Simulando o arquivo que você tem na pasta)
+        const jsonAlunos = `[
+            { "nome": "Maria Joaquinha", "notas": [8,7.5,9], "curso": "Sistemas para Internet"}, 
+            { "nome": "João Ricardo", "notas": [8,8.5,5], "curso": "Direito"}, 
+            { "nome": "José Henrique", "notas": [4,10,7], "curso": "Administração"}, 
+            { "nome": "Pedro da Silva", "notas": [6,7.6,7.5], "curso": "Sistemas para Internet"}, 
+            { "nome": "Silvana Morais", "notas": [6,7.5,9.5], "curso": "Sistemas de Informação"}, 
+            { "nome": "Patricia Castro", "notas": [1,9,10], "curso": "Arquitetura"}, 
+            { "nome": "Joana Ribeiro", "notas": [8,9,9], "curso": "Contabilidade"}, 
+            { "nome": "Rafael Rocha", "notas": [4,4,9], "curso": "Sistemas para Internet"}, 
+            { "nome": "Gustavo Henrique", "notas": [8,7.5,5], "curso": "Sistemas para Internet"}
+        ]`;
+
+        // 2. Transforma o JSON em Objeto JavaScript
+        const listaAlunos = JSON.parse(jsonAlunos);
+
+        // 3. Função para processar e exibir os dados
+        function exibirAprovados(alunos) {
+            const corpoTabela = document.getElementById('corpo-tabela');
+
+            alunos.forEach(aluno => {
+                // Cálculo da média aritmética
+                const soma = aluno.notas.reduce((acc, nota) => acc + nota, 0);
+                const media = soma / aluno.notas.length;
+
+                // 4. Filtro: Média maior ou igual a 7
+                if (media >= 7) {
+                    const linha = `
+                        <tr>
+                            <td>${aluno.nome}</td>
+                            <td>${aluno.curso}</td>
+                            <td class="aprovado">${media.toFixed(2)}</td>
+                        </tr>
+                    `;
+                    corpoTabela.innerHTML += linha;
+                }
+            });
+        }
+
+        // Executa a função ao carregar a página
+        exibirAprovados(listaAlunos);
+    </script>
+
+</body>
+</html>
